@@ -1,5 +1,12 @@
 # Repo Base
+
 This is a Rails application, initially generated using [Potassium](https://github.com/platanus/potassium) by Platanus.
+
+## Before installation
+
+Make sure you have install a ruby package manager and a node package mannager. For Ruby we recomend using [`rbenv`](https://github.com/rbenv/rbenv) with [`rbenv-aliases`](https://github.com/tpope/rbenv-aliases) to set an alias for an specific version. For node we recomend using [`nodenv`](https://github.com/nodenv/nodenv) with [`nodenv-aliases`](https://github.com/nodenv/nodenv-aliases) to set an alias for an specific version.
+
+Note: You can choose any other option available like `rvm` for Ruby or `nvm` for Node. But make sure you don't have multiple package mannagers install for Ruby or Node.
 
 ## Local installation
 
@@ -21,8 +28,11 @@ After the app setup is done you can run it with [Heroku Local]
 
     $ heroku local
 
-[Heroku Local]: https://devcenter.heroku.com/articles/heroku-local
+[heroku local]: https://devcenter.heroku.com/articles/heroku-local
 
+or
+
+    $ rails s
 
 ## Continuous Integrations
 
@@ -32,8 +42,11 @@ in [CircleCI](https://circleci.com/gh/platanus/repo-base/tree/master)
 You can also run the test locally simulating the production environment using docker.
 Just make sure you have docker installed and run:
 
-    bin/cibuild
+    $ bin/cibuild
 
+If you do not want to run your test with in Docker you can run them locally (you will need the database running either way):
+
+    $ bundle exec rspec spec/
 
 ## Style Guides
 
@@ -49,7 +62,6 @@ You can add or modify rules by editing the [`.rubocop.yml`](.rubocop.yml), [`.es
 
 You can (and should) use linter integrations for your text editor of choice, using the project's configuration.
 
-
 ## Internal dependencies
 
 ### Authentication
@@ -58,7 +70,7 @@ We are using the great [Devise](https://github.com/plataformatec/devise) library
 
 ### Rails pattern enforcing types
 
-This projects uses [Power-Types](https://github.com/platanus/power-types) to generate Services, Commands, Utils and Values.
+This projects uses [Power-Types](https://github.com/platanus/power-types) to generate Observers, Services, Commands, Utils and Values.
 
 ### Error Reporting
 
@@ -68,10 +80,7 @@ To report our errors we use [Sentry](https://github.com/getsentry/raven-ruby)
 
 This project uses [Active Admin](https://github.com/activeadmin/activeadmin) which is a Ruby on Rails framework for creating elegant backends for website administration.
 
-
-
 ## Seeds
 
 To populate your database with initial data you can add, inside the `/db/seeds.rb` file, the code to generate **only the necessary data** to run the application.
 If you need to generate data with **development purposes**, you can customize the `lib/fake_data_loader.rb` module and then to run the `rake load_fake_data` task from your terminal.
-
