@@ -34,6 +34,18 @@ or
 
     $ rails s
 
+## Local installation (windows detail)
+
+One assistant did the same installation as above but with the next details:
+
+- used windows educational
+- [`wsl2`](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index) over wsl1 for docker wsl2 integration
+- used rbenv for ruby installation
+- changed ".ruby-version" from 2.7 to 2.7.1 (did not install [`rbenv-aliases`](https://github.com/tpope/rbenv-aliases))
+- installed yarn but got a bug -> fix: https://stackoverflow.com/questions/46013544/yarn-install-command-error-no-such-file-or-directory-install
+- commented line  ```workers Integer(ENV['WEB_CONCURRENCY'] || 2)```
+- rails s -> server started
+
 ## Continuous Integrations
 
 The project is setup to run tests
